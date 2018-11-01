@@ -63,6 +63,7 @@ hr {
     border-color: #999999;
 }
 
+
 .brand,
 .address-bar {
     display: none;
@@ -268,4 +269,16 @@ footer p {
     margin-left: 175px;
     width: 800px;
     height: 700px;
+}
+.jumbotron2{
+    background-color: lightgray;
+    border: darkgray 1px;
+    border-style: solid;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 175px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 800px;
+    height: 335px;
 }
