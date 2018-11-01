@@ -259,3 +259,13 @@ footer p {
 
     text-align: center;
 }
+
+/*CADASTRO*/
+.jumbotron{
+
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 175px;
+    width: 800px;
+    height: 700px;
+}
