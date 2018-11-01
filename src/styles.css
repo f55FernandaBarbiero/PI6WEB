@@ -267,8 +267,12 @@ footer p {
     text-align: center;
     margin-top: 10px;
     margin-left: 175px;
-    width: 800px;
+    width: 790px;
     height: 700px;
+    background-color: lightgray;
+    border: darkgray 1px;
+    border-style: solid;
+    text-align: center;
 }
 .jumbotron2{
     background-color: lightgray;
@@ -281,4 +285,5 @@ footer p {
     padding-right: 10px;
     width: 800px;
     height: 335px;
+    border-radius: 10px;
 }
