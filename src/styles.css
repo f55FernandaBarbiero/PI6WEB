@@ -287,3 +287,11 @@ footer p {
     height: 335px;
     border-radius: 10px;
 }
+.livrosbox{
+    position: relative;
+    text-align: center;
+}
+
+.textohome{
+    padding: 25px;
+}
