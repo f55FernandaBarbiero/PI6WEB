@@ -13,7 +13,6 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
-import { CadastroService } from './cadastro/cadastro.service';
 import { HttpModule } from '@angular/http';
 
 @NgModule({

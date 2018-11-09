@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CadastroService } from './cadastro.service';
 import { Router } from '@angular/router';
 import { Cliente } from '../../modelo/cliente';
-import { NgForm } from '../../../node_modules/@angular/forms';
+import { NgForm} from '../../../node_modules/@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -14,21 +14,39 @@ export class CadastroComponent implements OnInit {
   @ViewChild("formCliente") formCliente: NgForm;
   usuario : Cliente;
 
-  constructor(private cadastroServico: CadastroService, private route: Router) { }
+  constructor(private cadastroServico: CadastroService, private route: Router){}
 
   ngOnInit() {
+    this.usuario = new Cliente(
+      0,
+      '',
+      '',
+      '',
+      '',
+      '',
+      false
+    );
   }
 
   insereUsuario(){
-     return this.cadastroServico.insereUsuario(this.usuario)
-       .subscribe(
-         (response) => {
-           console.log(response);
-           alert('Usuário Cadastrado!');
-           this.formCliente.reset();
-           this.route.navigate(['/']);
-         },
-         (error) => console.log(error)
-     );
+    
+    this.usuario.numeroDocumento = this.formCliente.value.documento;
+    this.usuario.nome = this.formCliente.value.nome;
+    this.usuario.email = this.formCliente.value.email;
+    this.usuario.senha = this.formCliente.value.senha;
+
+    alert('O resto vocês fazem ae caraio!');
+    //  return this.cadastroServico.insereUsuario(this.usuario)
+    //    .subscribe(
+    //      (response) => {
+    //        console.log(response);
+    //        alert('Usuário Cadastrado!');
+    //        this.formCliente.reset();
+    //        this.route.navigate(['/']);
+    //      },
+    //      (error) => console.log(error)
+    //  );
+
+    console.log(this.formCliente);
   }
 }

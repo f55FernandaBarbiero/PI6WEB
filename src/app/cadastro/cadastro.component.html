@@ -16,23 +16,43 @@
           <form (ngSubmit)="insereUsuario()" #formCliente="ngForm">
             <div class="form-group">
               <label for="nome">Nome</label>
-              <input type="text" class="form-control" name="nome" id="nome" required ngModel>
+              <input type="text" class="form-control" name="nome" id="nome" ngModel #nome="ngModel" required>
+              <div class="help-block" 
+                  *ngIf="!nome.valid && nome.touched" >
+                  Campo obrigatório!
+              </div>
             </div>
             <div class="form-group">
               <label class="control-label" for="email">E-mail</label>
-              <input type="email" class="form-control" name="email" id="email" required ngModel email>
+              <input type="email" class="form-control" name="email" id="email" required email ngModel #email="ngModel">
+              <div class="help-block" 
+                *ngIf="!email.valid && email.touched" >
+                {{ email.value == "" ? "Campo Obrigatório" : "E-mail Inválido"}}
+              </div>
             </div>
             <div class="form-group">
               <label class="control-label" for="senha">Senha</label>
-              <input type="password" class="form-control" name="senha" id="senha" required ngModel >
+              <input type="password" class="form-control" name="senha" id="senha" required ngModel #senha="ngModel" >
+              <div class="help-block" 
+                *ngIf="!senha.valid && senha.touched" >
+                Campo obrigatório!
+              </div>
             </div>
             <div class="form-group">
               <label class="control-label" for="documento">Numero do documento</label>
-              <input type="text" class="form-control" name="documento" id="documento" required ngModel>
+              <input type="text" class="form-control" name="documento" id="documento" required ngModel #documento="ngModel">
+              <div class="help-block" 
+                *ngIf="!documento.valid && documento.touched" >
+                Campo obrigatório!
+              </div>
             </div>
             <div class="form-group">
               <label class="control-label" for="nascimento">Data de Nascimento</label>
-              <input type="date" class="form-control" name="nascimento" id="nascimento" required ngModel> 
+              <input type="date" class="form-control" name="nascimento" id="nascimento" required ngModel #nascimento="ngModel"> 
+              <div class="help-block" 
+                *ngIf="!nascimento.valid && nascimento.touched" >
+                Campo obrigatório!
+              </div>
             </div>
             <hr />
             <div class="form-group text-center">
@@ -44,5 +64,4 @@
       <div class="clearfix"></div>
     </div>
   </div>
-
 </div>
