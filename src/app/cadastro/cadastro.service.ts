@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Cliente } from '../../modelo/cliente';
 @Injectable()
 export class CadastroService {
 
@@ -7,7 +8,7 @@ export class CadastroService {
 
     constructor(private http: Http) {}
 
-    insereUsuario(usuarios: any[]){
-        return this.http.post(this.url,usuarios)
+    insereUsuario(usuario: Cliente){
+        return this.http.post(this.url,usuario)
     }
 }

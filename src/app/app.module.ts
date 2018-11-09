@@ -13,7 +13,7 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
-import { CadastroService } from './services/cadastro.service';
+import { CadastroService } from './cadastro/cadastro.service';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     HttpModule
   ],
-  providers: [CadastroService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

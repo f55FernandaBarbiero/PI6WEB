@@ -1,8 +1,13 @@
 export class Cliente {
-    id: Number;
-    nome: String;
-    email: String;
-    cpf: String;
-    senha: String;
-    data: String;
+
+    constructor(
+        public id: Number,
+        public nome: String,
+        public email: String,
+        public numeroDocumento: String,
+        public senha: String,
+        public dataNascimento: String,
+        public isADM: boolean
+    ){}
+    
 }
