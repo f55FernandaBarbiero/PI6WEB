@@ -34,18 +34,18 @@ export class CadastroComponent implements OnInit {
     this.usuario.nome = this.formCliente.value.nome;
     this.usuario.email = this.formCliente.value.email;
     this.usuario.senha = this.formCliente.value.senha;
+    this.usuario.dataNascimento = this.formCliente.value.nascimento;
 
-    alert('O resto vocês fazem ae caraio!');
-    //  return this.cadastroServico.insereUsuario(this.usuario)
-    //    .subscribe(
-    //      (response) => {
-    //        console.log(response);
-    //        alert('Usuário Cadastrado!');
-    //        this.formCliente.reset();
-    //        this.route.navigate(['/']);
-    //      },
-    //      (error) => console.log(error)
-    //  );
+     return this.cadastroServico.insereUsuario(this.usuario)
+       .subscribe(
+         (response) => {
+           console.log(response);
+           alert('Usuário Cadastrado!');
+           this.formCliente.reset();
+           this.route.navigate(['/']);
+         },
+         (error) => console.log(error)
+     );
 
     console.log(this.formCliente);
   }
