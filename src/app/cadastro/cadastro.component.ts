@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CadastroService } from './cadastro.service';
+import { CadastroService } from '../servicos/cadastro.service';
 import { Router } from '@angular/router';
 import { Cliente } from '../../modelo/cliente';
 import { NgForm} from '../../../node_modules/@angular/forms';
@@ -46,7 +46,5 @@ export class CadastroComponent implements OnInit {
          },
          (error) => console.log(error)
      );
-
-    console.log(this.formCliente);
   }
 }

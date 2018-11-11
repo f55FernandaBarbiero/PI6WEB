@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+      <div class="box">
+        <div class="col-lg-12">
+          <hr>
+          <h2 class="intro-text text-center">INSIRA
+            <strong>AQUI O SEU LIVRO</strong>
+          </h2>
+          <hr>
+        </div>
+        <div class="col-lg-12">
+          <div class="jumbotron">
+            <h1 class="text-center">Digite os dados do Livro</h1>
+            <hr />
+            <form (ngSubmit)="onSubmit()" #formLivro="ngForm">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="nome.value" #nome="ngModel" required>
+                <div class="help-block" 
+                    *ngIf="!nome.valid && nome.touched" >
+                    Campo obrigatório!
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="autor">Autor</label>
+                <input type="text" class="form-control" name="autor" id="autor" required autor ngModel #autor="ngModel">
+                <div class="help-block" 
+                  *ngIf="!autor.valid && autor.touched" >
+                  Campo Obrigatório
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="tipo">Gênero</label>
+                <input type="text" class="form-control" name="tipo" id="tipo" required ngModel #tipo="ngModel" >
+                <div class="help-block" 
+                  *ngIf="!tipo.valid && tipo.touched" >
+                  Campo obrigatório!
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="preco">Preço</label>
+                <input type="text" class="form-control" name="preco" id="preco" required ngModel #preco="ngModel">
+                <div class="help-block" 
+                  *ngIf="!preco.valid && preco.touched" >
+                  Campo obrigatório!
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="editora">Editora</label>
+                <input type="text" class="form-control" name="editora" id="editora" required ngModel #editora="ngModel"> 
+                <div class="help-block" 
+                  *ngIf="!editora.valid && editora.touched" >
+                  Campo obrigatório!
+                </div>
+              </div>
+              <hr />
+              <div class="form-group text-center">
+                <button class="btn btn-primary" type="submit" [disabled]="!formLivro.valid" >Salvar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
