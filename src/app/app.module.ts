@@ -8,12 +8,14 @@ import { AppHeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ServicesComponent } from './services/services.component';
+import { LivrosComponent } from './livros/livros.component';
 import { ContactComponent } from './contact/contact.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
+import { LivrosListagemComponent } from './livros/livros-listagem/livros-listagem.component';
+import { SobreComponent } from './sobre/sobre.component';
+import { LivrosEditComponent } from './livros/livros-edit/livros-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { HttpModule } from '@angular/http';
     FooterComponent,
     NavBarComponent,
     HomeComponent,
-    AboutComponent,
-    ServicesComponent,
+    LivrosComponent,
+    SobreComponent,
     ContactComponent,
     CadastroComponent,
-    LoginComponent
+    LoginComponent,
+    LivrosListagemComponent,
+    LivrosEditComponent
   ],
   imports: [
     BrowserModule,
