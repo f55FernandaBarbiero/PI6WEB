@@ -11,4 +11,8 @@ export class CadastroService {
     insereUsuario(usuario: Cliente) {
         return this.http.post(this.url, usuario);
     }
+
+    buscaUsuarioLogin(email: string, senha: string){
+        return this.http.get(this.url + '?email=' + email + '&senha=' + senha);
+    }
 }

@@ -8,7 +8,7 @@ import { NgForm} from '../../../node_modules/@angular/forms';
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css'],
-  providers: [CadastroService]
+  providers: []
 })
 export class CadastroComponent implements OnInit {
   @ViewChild('formCliente') formCliente: NgForm;

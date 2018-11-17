@@ -16,6 +16,8 @@ import { HttpModule } from '@angular/http';
 import { LivrosListagemComponent } from './livros/livros-listagem/livros-listagem.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { LivrosEditComponent } from './livros/livros-edit/livros-edit.component';
+import { AuthService } from './servicos/auth.service';
+import { CadastroService } from './servicos/cadastro.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import { LivrosEditComponent } from './livros/livros-edit/livros-edit.component'
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [AuthService, CadastroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

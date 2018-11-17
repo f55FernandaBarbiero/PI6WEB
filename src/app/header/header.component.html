@@ -1,18 +1,20 @@
 <div class="user-menu">
-    <a href="#">
-        <img 
-            src="src/app/header/img/user.png" 
-            height="15" 
-            width="15">
-        Minha Conta 
-    </a> |
-    <a href="#">
-        <img 
-            src="src/app/header/img/books.png"
-            height="15" 
-            width="15"> 
-        Lista de Desejos 
-    </a> |
+    <div *ngIf="authService.isAuthenticated()">
+        <a href="#">
+                <img 
+                    src="src/app/header/img/user.png" 
+                    height="15" 
+                    width="15">
+                Minha Conta 
+        </a> |
+        <a href="#">
+            <img 
+                src="src/app/header/img/books.png"
+                height="15" 
+                width="15"> 
+            Lista de Desejos 
+        </a> |
+    </div>  
     <a href="checkout.html">
         <img 
             src="src/app/header/img/checkmark.png" 
