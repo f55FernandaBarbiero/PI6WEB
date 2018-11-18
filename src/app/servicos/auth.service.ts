@@ -6,8 +6,12 @@ import { Router } from "@angular/router";
 @Injectable()
 export class AuthService{
     private token:  { 
-                    email: string,
-                    senha: string
+                        email: string,
+                        id: number,
+                        isADM: boolean,
+                        nome: string,
+                        numeroDocumento: string,
+                        senha: string
                     } = null;
 
     constructor(private http: Http, private usuarioService: CadastroService, private router: Router){}
@@ -19,7 +23,7 @@ export class AuthService{
     LogIn(email: string, senha: string){
         this.usuarioService.buscaUsuarioLogin(email, senha)
           .subscribe(
-              (retorno) => {
+                (retorno) => {
                     const data = retorno.json();
                     console.log(data);
                     if (!data)
@@ -30,12 +34,23 @@ export class AuthService{
                         
                     else
                     {
-                        this.token = {email : data.email, senha : data.senha};
+                        this.token = data;
                         alert('Bem vindo, ' + data.nome + '!');
                         this.router.navigate(['/']);
                     }
-              },
-              (error) => console.log(error)
+                },
+                (error) => {
+                    console.log(error);
+                }
           );
+    }
+
+    Logoff(){
+        this.token = null;
+        this.router.navigate(['/']);
+    }
+
+    getUsername(){
+        return this.token.nome;
     }
 }

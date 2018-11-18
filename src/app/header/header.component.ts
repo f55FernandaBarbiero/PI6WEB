@@ -13,4 +13,8 @@ export class AppHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  onLogoff()
+  {
+    this.authService.Logoff();
+  }
 }

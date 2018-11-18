@@ -18,6 +18,9 @@ import { SobreComponent } from './sobre/sobre.component';
 import { LivrosEditComponent } from './livros/livros-edit/livros-edit.component';
 import { AuthService } from './servicos/auth.service';
 import { CadastroService } from './servicos/cadastro.service';
+import { AuthGuard } from './servicos/auth-guard.service';
+import { NotFoundComponent } from './error-pages/not-found.component';
+import { ForbiddenComponent } from './error-pages/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { CadastroService } from './servicos/cadastro.service';
     CadastroComponent,
     LoginComponent,
     LivrosListagemComponent,
-    LivrosEditComponent
+    LivrosEditComponent,
+    NotFoundComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { CadastroService } from './servicos/cadastro.service';
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService, CadastroService],
+  providers: [AuthService, CadastroService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

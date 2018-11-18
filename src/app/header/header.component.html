@@ -1,32 +1,46 @@
 <div class="user-menu">
-    <div *ngIf="authService.isAuthenticated()">
-        <a href="#">
-                <img 
-                    src="src/app/header/img/user.png" 
-                    height="15" 
-                    width="15">
-                Minha Conta 
+    <ng-template [ngIf]="authService.isAuthenticated()">
+        <a>
+            <img 
+                src="src/app/header/img/user.png" 
+                height="15" 
+                width="15">
+            <span>Minha Conta</span>
         </a> |
-        <a href="#">
+        <a>
             <img 
                 src="src/app/header/img/books.png"
                 height="15" 
                 width="15"> 
-            Lista de Desejos 
+            <span>Lista de Desejos</span>
         </a> |
-    </div>  
-    <a href="checkout.html">
+    </ng-template>  
+    <a routerLink="/cadastro">
         <img 
             src="src/app/header/img/checkmark.png" 
             height="15" 
             width="15">
-            <a routerLink="/cadastro">Cadastro</a>
+            <span>Cadastro</span>
     </a> |
-    <a href="#">
+    <a *ngIf="!authService.isAuthenticated()" routerLink="/login">
         <img 
             src="src/app/header/img/door.png" 
             height="15" 
             width="15"> 
-            <a routerLink="/login">Login</a>
+            <span>Login</span>
     </a>
+    <a *ngIf="authService.isAuthenticated()" style="cursor:pointer" (click)="onLogoff()">
+        <img 
+            src="src/app/header/img/door.png" 
+            height="15" 
+            width="15"> 
+            <span>Logoff</span>
+    </a>
+    <a style="float:right; margin-right: 35px" *ngIf="authService.isAuthenticated()">
+            <img 
+                src="src/app/header/img/user.png" 
+                height="15" 
+                width="15"> 
+                <span>{{ authService.getUsername() }}</span>
+        </a>
 </div>
