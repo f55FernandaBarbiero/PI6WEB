@@ -15,7 +15,7 @@
                 <li>
                     <a routerLink="/">Home</a>
                 </li>
-                <li>
+                <li *ngIf="authService.isAuthenticated()">
                     <a routerLink="/livros">Livros</a>
                 </li>
                 <li>

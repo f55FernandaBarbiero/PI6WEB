@@ -27,4 +27,5 @@ export class LivrosService{
     deletaLivro(livro: Livro){
         return this.http.put(this.url + '/deletar', livro);
     }
+
 }

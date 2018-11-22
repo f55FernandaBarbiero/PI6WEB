@@ -294,4 +294,19 @@ footer p {
 
 .textohome{
     padding: 25px;
+    padding-right: 70px;
+    text-align: justify;
+    font-size: 20px;
+    padding-left: 65px;
+}
+
+
+.primeiraletra {
+    display:block;
+    padding-left: 50px;
+    float:left;
+    color: orange;
+    font-size:70px;
+    padding-top: 4px;
+    font-family:Verdana;
 }

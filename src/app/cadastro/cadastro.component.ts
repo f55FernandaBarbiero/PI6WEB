@@ -8,13 +8,13 @@ import { NgForm} from '../../../node_modules/@angular/forms';
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css'],
-  providers: [CadastroService]
+  providers: []
 })
 export class CadastroComponent implements OnInit {
-  @ViewChild("formCliente") formCliente: NgForm;
-  usuario : Cliente;
+  @ViewChild('formCliente') formCliente: NgForm;
+  usuario: Cliente;
 
-  constructor(private cadastroServico: CadastroService, private route: Router){}
+  constructor(private cadastroServico: CadastroService, private route: Router) {}
 
   ngOnInit() {
     this.usuario = new Cliente(
@@ -28,8 +28,7 @@ export class CadastroComponent implements OnInit {
     );
   }
 
-  insereUsuario(){
-    
+  insereUsuario() {
     this.usuario.numeroDocumento = this.formCliente.value.documento;
     this.usuario.nome = this.formCliente.value.nome;
     this.usuario.email = this.formCliente.value.email;

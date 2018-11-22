@@ -16,6 +16,11 @@ import { HttpModule } from '@angular/http';
 import { LivrosListagemComponent } from './livros/livros-listagem/livros-listagem.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { LivrosEditComponent } from './livros/livros-edit/livros-edit.component';
+import { AuthService } from './servicos/auth.service';
+import { CadastroService } from './servicos/cadastro.service';
+import { AuthGuard } from './servicos/auth-guard.service';
+import { NotFoundComponent } from './error-pages/not-found.component';
+import { ForbiddenComponent } from './error-pages/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,9 @@ import { LivrosEditComponent } from './livros/livros-edit/livros-edit.component'
     CadastroComponent,
     LoginComponent,
     LivrosListagemComponent,
-    LivrosEditComponent
+    LivrosEditComponent,
+    NotFoundComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,7 @@ import { LivrosEditComponent } from './livros/livros-edit/livros-edit.component'
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [AuthService, CadastroService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
