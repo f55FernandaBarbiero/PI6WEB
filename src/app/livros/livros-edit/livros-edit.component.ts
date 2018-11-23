@@ -26,7 +26,7 @@ export class LivrosEditComponent implements OnInit {
             this.formLivro.setValue({
               nome: data.nome,
               autor: data.autor,
-              tipo: data.genero,
+              genero: data.tipo,
               preco: data.preco,
               editora: data.editora
             }),
@@ -44,11 +44,11 @@ export class LivrosEditComponent implements OnInit {
     this.livro.nome = this.formLivro.value.nome;
     this.livro.autor = this.formLivro.value.autor;
     this.livro.editora = this.formLivro.value.editora;
-    this.livro.tipo = this.formLivro.value.tipo;
+    this.livro.genero = this.formLivro.value.genero;
     this.livro.preco = this.formLivro.value.preco;
     // this.livro.edicao = this.formLivro.value.edicao;
 
-    if (this.livro.id == 0){
+    if (this.livro.id == null){
       this.livrosService.insereLivro(this.livro)
       .subscribe(
         (response) => {
@@ -60,7 +60,8 @@ export class LivrosEditComponent implements OnInit {
           console.log(error)
         }
       )
-    }else
+    }
+    else
     {
       this.livrosService.atualizaLivro(this.livro)
       .subscribe(

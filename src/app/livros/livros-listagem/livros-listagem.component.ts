@@ -20,7 +20,7 @@ export class LivrosListagemComponent implements OnInit {
         const data = response.json();
         console.log(data);
         data.forEach(livro => {
-          this.livros.push(livro);
+          this.livros.push(livro);;
         });
       },
       (error) => console.log(error)
