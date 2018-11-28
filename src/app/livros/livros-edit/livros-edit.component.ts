@@ -26,7 +26,7 @@ export class LivrosEditComponent implements OnInit {
             this.formLivro.setValue({
               nome: data.nome,
               autor: data.autor,
-              genero: data.tipo,
+              genero: data.genero,
               preco: data.preco,
               editora: data.editora
             }),
@@ -52,6 +52,7 @@ export class LivrosEditComponent implements OnInit {
       this.livrosService.insereLivro(this.livro)
       .subscribe(
         (response) => {
+          console.log(this.livro);
           alert('Livro cadastrado!');
           this.router.navigate(['/']);
         },

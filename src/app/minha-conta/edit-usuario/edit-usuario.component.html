@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">
+                    <strong>Alteração de dados cadastrais</strong>
+                </h2>
+                <hr>
+            </div>
+            <div class="row">
+                <form (ngSubmit)="onSubmit()" #formEdicao="ngForm">
+                    <div class="col-xs-2 col-md-2">
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group form-group-lg"> 
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="usuario.nome" #nome="ngModel" required>
+                            <div class="help-block" 
+                                *ngIf="!nome.valid && nome.touched" >
+                                Campo obrigatório!
+                            </div>
+                        </div>
+                        <div class="form-group form-group-lg">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" name="email" id="email" email [(ngModel)]="usuario.email" #email="ngModel" required>
+                            <div class="help-block" 
+                                *ngIf="!email.valid && email.touched" >
+                                Campo obrigatório!
+                            </div>
+                        </div>
+                        <div class="form-group form-group-lg">
+                            <label for="documento">Documento</label>
+                            <input type="text" class="form-control" name="documento" id="documento" [(ngModel)]="usuario.numeroDocumento" #documento="ngModel" required>
+                            <div class="help-block" 
+                                *ngIf="!documento.valid && documento.touched" >
+                                Campo obrigatório!
+                            </div>
+                        </div>
+                        <div class="form-group form-group-lg">
+                            <label for="nascimento">Data de Nascimento</label>
+                            <input type="date" class="form-control" name="nascimento" id="nascimento" [(ngModel)]="usuario.dataNascimento" #nascimento="ngModel" required>
+                            <div class="help-block" 
+                                *ngIf="!nascimento.valid && nascimento.touched" >
+                                Campo obrigatório!
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" class="btn btn-primary" [disabled]="!formEdicao.valid">Salvar Alterações</button>
+                        </div>
+                    </div>                      
+                    <div class="col-xs-3 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="senhaAntiga">Senha</label>
+                            <input type="password" class="form-control" name="senhaAntiga" id="senhaAntiga" [(ngModel)]="senhaAntiga" #senhaAntigaControl="ngModel" >
+                            <div class="help-block" 
+                              *ngIf="!senhaAntigaControl.valid && senhaAntigaControl.touched" >
+                              Campo obrigatório!
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="novaSenha">Nova Senha</label>
+                            <input type="password" class="form-control" name="novaSenha" id="novaSenha" [(ngModel)]="novaSenha" #novaSenhaFormControl="ngModel" >
+                            <div class="help-block" 
+                              *ngIf="!novaSenhaFormControl.valid && novaSenhaFormControl.touched" >
+                              Campo obrigatório!
+                            </div>
+                        </div>                        
+                        <div class="form-group">
+                            <label class="control-label" for="validSenha">Repita a Senha</label>
+                            <input type="password" class="form-control" name="validSenha" id="validSenha" [(ngModel)]="validSenha" #validSenhaControl="ngModel" >
+                            <div class="help-block" 
+                              *ngIf="!validSenhaControl.valid && validSenhaControl.touched" >
+                              Campo obrigatório!
+                            </div>
+                        </div>
+                    </div> 
+                </form> 
+            </div>
+        </div>        
+    </div>
+</div>

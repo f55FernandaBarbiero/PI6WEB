@@ -11,7 +11,8 @@ export class AuthService{
                         isADM: boolean,
                         nome: string,
                         numeroDocumento: string,
-                        senha: string
+                        senha: string,
+                        dataNascimento: string
                     } = null;
 
     constructor(private http: Http, private usuarioService: CadastroService, private router: Router){}
@@ -52,5 +53,9 @@ export class AuthService{
 
     getUsername(){
         return this.token.nome;
+    }
+
+    getUser(){
+        return this.token;
     }
 }

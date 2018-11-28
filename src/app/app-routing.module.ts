@@ -11,6 +11,9 @@ import { LivrosListagemComponent } from './livros/livros-listagem/livros-listage
 import { AuthGuard } from './servicos/auth-guard.service';
 import { NotFoundComponent } from './error-pages/not-found.component';
 import { ForbiddenComponent } from './error-pages/forbidden.component';
+import { MinhaContaComponent } from './minha-conta/minha-conta.component';
+import { EditUsuarioComponent } from './minha-conta/edit-usuario/edit-usuario.component';
+import { AlteraSenhaComponent } from './minha-conta/altera-senha/altera-senha.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,6 +26,9 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'cadastro', component: CadastroComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'minha-conta', component: MinhaContaComponent, canActivate: [AuthGuard]},
+  {path: 'altera-dados', component: EditUsuarioComponent, canActivate: [AuthGuard]},
+  {path: 'altera-senha', component: AlteraSenhaComponent, canActivate: [AuthGuard]},
   {path: '404', component: NotFoundComponent},
   {path: 'acesso-negado', component: ForbiddenComponent},
   {path: '**', redirectTo: '404'}

@@ -21,6 +21,9 @@ import { CadastroService } from './servicos/cadastro.service';
 import { AuthGuard } from './servicos/auth-guard.service';
 import { NotFoundComponent } from './error-pages/not-found.component';
 import { ForbiddenComponent } from './error-pages/forbidden.component';
+import { MinhaContaComponent } from './minha-conta/minha-conta.component';
+import { EditUsuarioComponent } from './minha-conta/edit-usuario/edit-usuario.component';
+import { AlteraSenhaComponent } from './minha-conta/altera-senha/altera-senha.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { ForbiddenComponent } from './error-pages/forbidden.component';
     LivrosListagemComponent,
     LivrosEditComponent,
     NotFoundComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    MinhaContaComponent,
+    EditUsuarioComponent,
+    AlteraSenhaComponent
   ],
   imports: [
     BrowserModule,

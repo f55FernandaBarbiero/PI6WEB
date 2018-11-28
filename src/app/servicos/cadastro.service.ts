@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Cliente } from '../../modelo/cliente';
-import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs/internal/observable/of';
 @Injectable()
 export class CadastroService {
 
@@ -16,5 +14,9 @@ export class CadastroService {
 
     buscaUsuarioLogin(email: string, senha: string){
         return this.http.get(this.url + '?email=' + email + '&senha=' + senha);
+    }
+
+    atualizaUsuario(usuario: Cliente){
+        return this.http.put(this.url, usuario);
     }
 }
