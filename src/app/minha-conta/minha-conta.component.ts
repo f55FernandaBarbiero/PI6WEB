@@ -9,19 +9,5 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './minha-conta.component.html',
   styleUrls: ['./minha-conta.component.css']
 })
-export class MinhaContaComponent implements OnInit {
-  private usuario : Cliente;
-  constructor(private usuarioServico: CadastroService, private authService: AuthService, private router: Router) { }
-
-  ngOnInit() {
-    this.usuario = this.authService.getUser();
-  }
-
-  navegaAlterar(){
-    this.router.navigate(["altera-dados"]);
-  }
-
-  navegaSenha(){
-    this.router.navigate(["altera-senha"]);
-  }
+export class MinhaContaComponent {
 }

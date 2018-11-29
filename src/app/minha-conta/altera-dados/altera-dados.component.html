@@ -52,25 +52,25 @@
                     <div class="col-xs-3 col-md-3">
                         <div class="form-group">
                             <label class="control-label" for="senhaAntiga">Senha</label>
-                            <input type="password" class="form-control" name="senhaAntiga" id="senhaAntiga" [(ngModel)]="senhaAntiga" #senhaAntigaControl="ngModel" >
+                            <input type="password" class="form-control" name="senhaAntiga" id="senhaAntiga" [(ngModel)]="senhaAntigaVar" #senhaAntiga="ngModel" >
                             <div class="help-block" 
-                              *ngIf="!senhaAntigaControl.valid && senhaAntigaControl.touched" >
+                              *ngIf="!senhaAntiga.valid && senhaAntiga.touched" >
                               Campo obrigatório!
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="novaSenha">Nova Senha</label>
-                            <input type="password" class="form-control" name="novaSenha" id="novaSenha" [(ngModel)]="novaSenha" #novaSenhaFormControl="ngModel" >
+                            <input type="password" class="form-control" name="novaSenha" id="novaSenha" [(ngModel)]="novaSenhaVar" #novaSenha="ngModel" >
                             <div class="help-block" 
-                              *ngIf="!novaSenhaFormControl.valid && novaSenhaFormControl.touched" >
+                              *ngIf="!novaSenha.valid && novaSenha.touched" >
                               Campo obrigatório!
                             </div>
                         </div>                        
                         <div class="form-group">
                             <label class="control-label" for="validSenha">Repita a Senha</label>
-                            <input type="password" class="form-control" name="validSenha" id="validSenha" [(ngModel)]="validSenha" #validSenhaControl="ngModel" >
+                            <input type="password" class="form-control" name="validSenha" id="validSenha" [(ngModel)]="validSenhaVar" #validSenha="ngModel" >
                             <div class="help-block" 
-                              *ngIf="!validSenhaControl.valid && validSenhaControl.touched" >
+                              *ngIf="!validSenha.valid && validSenha.touched" >
                               Campo obrigatório!
                             </div>
                         </div>

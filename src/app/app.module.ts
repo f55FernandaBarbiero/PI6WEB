@@ -22,8 +22,9 @@ import { AuthGuard } from './servicos/auth-guard.service';
 import { NotFoundComponent } from './error-pages/not-found.component';
 import { ForbiddenComponent } from './error-pages/forbidden.component';
 import { MinhaContaComponent } from './minha-conta/minha-conta.component';
-import { EditUsuarioComponent } from './minha-conta/edit-usuario/edit-usuario.component';
+import { EditUsuarioComponent } from './minha-conta/altera-dados/altera-dados.component';
 import { AlteraSenhaComponent } from './minha-conta/altera-senha/altera-senha.component';
+import { MenuUsuarioComponent } from './minha-conta/menu-usuario/menu-usuario.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AlteraSenhaComponent } from './minha-conta/altera-senha/altera-senha.co
     ForbiddenComponent,
     MinhaContaComponent,
     EditUsuarioComponent,
-    AlteraSenhaComponent
+    AlteraSenhaComponent,
+    MenuUsuarioComponent
   ],
   imports: [
     BrowserModule,
