@@ -19,4 +19,8 @@ export class CadastroService {
     atualizaUsuario(usuario: Cliente){
         return this.http.put(this.url, usuario);
     }
+
+    removeUsuario(usuario: Cliente){
+        return this.http.put(this.url + '/deletar', usuario);
+    }
 }

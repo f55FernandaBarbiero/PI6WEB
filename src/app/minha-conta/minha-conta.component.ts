@@ -1,8 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CadastroService } from '../servicos/cadastro.service';
-import { AuthService } from '../servicos/auth.service';
-import { Cliente } from 'src/modelo/cliente';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-minha-conta',
