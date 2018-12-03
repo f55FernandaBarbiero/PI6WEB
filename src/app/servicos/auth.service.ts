@@ -21,6 +21,10 @@ export class AuthService{
         return this.token != null;
     }
 
+    isAdm(){
+        return this.token.isADM;
+    }
+
     LogIn(email: string, senha: string){
         this.usuarioService.buscaUsuarioLogin(email, senha)
           .subscribe(

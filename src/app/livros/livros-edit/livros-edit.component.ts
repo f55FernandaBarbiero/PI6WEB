@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LivrosService } from '../../servicos/livros.service';
 import { Livro } from '../../../modelo/livro';
 import { Router, ActivatedRoute } from '@angular/router';
+import { createWiresService } from 'selenium-webdriver/firefox';
 
 @Component({
   selector: 'app-livros-edit',
@@ -12,6 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LivrosEditComponent implements OnInit {
   livro: Livro = new Livro();
   @ViewChild("formLivro") formLivro: NgForm;
+  @ViewChild('fileInput') inputEl: ElementRef;
 
   constructor(private livrosService: LivrosService, private router: Router, private route: ActivatedRoute) { }
 
@@ -23,12 +25,14 @@ export class LivrosEditComponent implements OnInit {
           (response) => {
             const data = response.json();
             this.livro.id = data.id;
-            this.formLivro.setValue({
+            this.formLivro.form.patchValue({
               nome: data.nome,
               autor: data.autor,
               genero: data.genero,
               preco: data.preco,
-              editora: data.editora
+              editora: data.editora,
+              caminho: data.caminho
+
             }),
             (error) => {console.log(error)}
               // data.editora,
@@ -39,6 +43,13 @@ export class LivrosEditComponent implements OnInit {
         )
     }
   }
+
+  upload() {
+    let inputEl: HTMLInputElement = this.inputEl.nativeElement;
+    let formData = new FormData();
+    formData.set('file', inputEl.files.item(0));
+    return formData;
+  }  
 
   onSubmit(){
     this.livro.nome = this.formLivro.value.nome;
@@ -59,6 +70,13 @@ export class LivrosEditComponent implements OnInit {
         (error) => {
           console.log(this.livro);
           console.log(error)
+        },
+        () => {
+          this.livrosService.uploadLivro( this.upload() )
+            .subscribe(
+              (data) => {console.log("serviço realizou upload")},
+              (error) => {console.log(error)}
+            )
         }
       )
     }
@@ -73,6 +91,13 @@ export class LivrosEditComponent implements OnInit {
         (error) => {
           console.log(this.livro);
           console.log(error);
+        },
+        () => {
+          this.livrosService.uploadLivro( this.upload() )
+            .subscribe(
+              (data) => {console.log("serviço realizou upload")},
+              (error) => {console.log(error)}
+            )
         }
       )      
     }

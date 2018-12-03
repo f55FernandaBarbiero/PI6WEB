@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Livro } from '../../../modelo/livro';
 import { LivrosService } from '../../servicos/livros.service';
+import { AuthService } from 'src/app/servicos/auth.service';
+import { isNavigationCancelingError } from '@angular/router/src/shared';
 
 @Component({
   selector: 'app-livros-listagem',
@@ -11,7 +13,7 @@ export class LivrosListagemComponent implements OnInit {
 
   livros: Array<Livro> = [];
 
-  constructor(private livroService: LivrosService) { }
+  constructor(private livroService: LivrosService, private authService: AuthService) { }
 
   ngOnInit() {
     this.livroService.buscaLivros()
@@ -39,5 +41,33 @@ export class LivrosListagemComponent implements OnInit {
       }
     ),
       (error) => console.log(error);
+  }
+
+  baixaLivro(livro: Livro){
+    this.livroService.donwloadLivro(livro.id, livro.nome)
+      .subscribe(
+        (data) => {
+          console.log("baixou?");          
+        },
+        (error) => {
+          console.log(error);
+          
+        },
+        () => {
+          let dadosCompra = {
+            livroID : livro.id,
+            usuarioEmail : this.authService.getUser().email
+          }
+          this.livroService.registraDownload(dadosCompra)
+            .subscribe(
+              (data) => {
+                console.log("compra cadastrada");                
+              },
+              (error) => {
+                console.log(error);                
+              }
+            )
+        }
+      )
   }
 }

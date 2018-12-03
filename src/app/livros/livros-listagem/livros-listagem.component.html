@@ -3,7 +3,7 @@
         <div class="box">
           <div class="table-responsive">
             <div>
-              <a class="btn btn-primary" routerLink="novo">Novo Livro</a>
+              <a *ngIf="authService.isAdm()" class="btn btn-primary" routerLink="novo">Novo Livro</a>
             </div>
             <table class="table table-bordered table-hover">
                 <thead>
@@ -11,7 +11,8 @@
                     <th>#</th>
                     <th>Livro</th>
                     <th>Autor</th>
-                    <th>Deletar</th>
+                    <th *ngIf="authService.isAdm()">Deletar</th>
+                    <th>Donwload</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -20,13 +21,17 @@
                       
                     </td>
                     <td>
-                      <a [routerLink]="['edit',livro.id]">{{ livro.nome }}</a>
+                      <a *ngIf="authService.isAdm()" [routerLink]="['edit',livro.id]">{{ livro.nome }}</a>
+                      <a *ngIf="!authService.isAdm()">{{ livro.nome }}</a>
                     </td>
                     <td>
                       {{ livro.autor }}
                     </td>
-                    <td class="btn-group">
+                    <td *ngIf="authService.isAdm()" class="btn-group">
                       <button class="btn btn-danger" (click)="removeLivro(livro.id)">x</button>
+                    </td>
+                    <td class="btn-group">
+                        <button class="btn" (click)="baixaLivro(livro)">Download</button>
                     </td>
                   </tr>
                 </tbody>
