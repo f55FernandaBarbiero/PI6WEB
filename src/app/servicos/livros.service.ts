@@ -34,7 +34,8 @@ export class LivrosService{
     }
 
     donwloadLivro(id: number, nome: string){
-        return this.http.get(this.url + '/DownloadLivro?id=' + id + '&titulo=' + nome);
+        window.open(this.url + '/DownloadLivro?id=' + id + '&titulo=' + nome, '_blank');
+        return null; // this.http.get(this.url + '/DownloadLivro?id=' + id + '&titulo=' + nome);
     }
 
     registraDownload(dadosCompra: any){
