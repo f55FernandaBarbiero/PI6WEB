@@ -14,6 +14,8 @@ export class LivrosEditComponent implements OnInit {
   livro: Livro = new Livro();
   @ViewChild("formLivro") formLivro: NgForm;
   @ViewChild('fileInput') inputEl: ElementRef;
+  txtMesFinal: any;
+  txtMesIncial: any;
 
   constructor(private livrosService: LivrosService, private router: Router, private route: ActivatedRoute) { }
 
@@ -46,7 +48,25 @@ export class LivrosEditComponent implements OnInit {
 
   downloadRelatorioLivro()
   {
-    this.livrosService.downloadRelatorioLivro(this.txtMesIncial, this.txtMesFinal);
+    var mInicial = "0";
+    var mFinal = "0";
+
+    if (this.txtMesIncial == null || this.txtMesIncial == "")
+    {
+      mInicial = "1";
+    }
+    else {
+      mInicial = this.txtMesIncial;
+    }
+     if (this.txtMesFinal == null || this.txtMesFinal == "")
+    {
+      mFinal = "1";
+    }
+    else {
+      mFinal = this.txtMesFinal;
+    }
+    
+    this.livrosService.downloadRelatorioLivro(mInicial, mFinal);
   }
   downloadRelatorioUsuario()
   {

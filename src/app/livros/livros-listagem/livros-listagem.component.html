@@ -4,11 +4,6 @@
           <div class="table-responsive">
             <div>
               <a *ngIf="authService.isAdm()" class="btn btn-primary" routerLink="novo">Novo Livro</a>
-              
-                <button (click)="downloadRelatatorioLivro(mesInico, mesFinal)">Relatório dos Livros</button>
-
-                <button (click)="downloadRelatatorioUsuario(mesInico, mesFinal)">Relatório dos usuários</button>
-
             </div>
             <table class="table table-bordered table-hover">
                 <thead>
