@@ -310,3 +310,14 @@ footer p {
     padding-top: 4px;
     font-family:Verdana;
 }
+
+.col-md-6{
+    width: 600px; 
+    margin-left: 350px;
+    margin-top: -300px;
+    text-align: justify;
+}
+
+.col-md-8{
+    padding-left: 100px;
+}
