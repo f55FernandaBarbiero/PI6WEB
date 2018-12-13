@@ -4,6 +4,11 @@
           <div class="table-responsive">
             <div>
               <a *ngIf="authService.isAdm()" class="btn btn-primary" routerLink="novo">Novo Livro</a>
+              
+                <button (click)="downloadRelatatorioLivro(mesInico, mesFinal)">Relatório dos Livros</button>
+
+                <button (click)="downloadRelatatorioUsuario(mesInico, mesFinal)">Relatório dos usuários</button>
+
             </div>
             <table class="table table-bordered table-hover">
                 <thead>
@@ -16,7 +21,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let livro of livros">
+                 <tr *ngFor="let livro of livros">
                     <td>
                       
                     </td>
@@ -31,10 +36,10 @@
                       <button class="btn btn-danger" (click)="removeLivro(livro.id)">x</button>
                     </td>
                     <td class="btn-group">
-                        
                         <button class="btn" (click)="baixaLivro(livro)">Download</button>
                     </td>
-                  </tr>
+                   
+                </tr>
                 </tbody>
               </table>
           </div>

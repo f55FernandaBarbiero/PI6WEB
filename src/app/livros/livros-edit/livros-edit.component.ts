@@ -40,10 +40,35 @@ export class LivrosEditComponent implements OnInit {
               // data.isExcluid
             console.log(this.formLivro);
           }
-        )
+        );
     }
-  }
+}
 
+  downloadRelatorioLivro()
+  {
+    this.livrosService.downloadRelatorioLivro(this.txtMesIncial, this.txtMesFinal);
+  }
+  downloadRelatorioUsuario()
+  {
+    var mInicial = "0";
+    var mFinal = "0";
+
+    if (this.txtMesIncial == null || this.txtMesIncial == "")
+    {
+      mInicial = "1";
+    }
+    else {
+      mInicial = this.txtMesIncial;
+    }
+     if (this.txtMesFinal == null || this.txtMesFinal == "")
+    {
+      mFinal = "1";
+    }
+    else {
+      mFinal = this.txtMesFinal;
+    }
+    this.livrosService.downloadRelatorioUsuario(mInicial, mFinal);
+  }
   upload() {
     let inputEl: HTMLInputElement = this.inputEl.nativeElement;
     let formData = new FormData();
@@ -51,6 +76,7 @@ export class LivrosEditComponent implements OnInit {
     return formData;
   }  
 
+  
   onSubmit(){
     this.livro.nome = this.formLivro.value.nome;
     this.livro.autor = this.formLivro.value.autor;

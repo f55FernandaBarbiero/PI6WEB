@@ -6,7 +6,7 @@ import { Livro } from "../../modelo/livro";
 export class LivrosService{
     constructor(private http: Http){}
 
-    private url = "http://localhost:8080/LivrariaVirtual/servicos/Livro";
+    private url = 'http://localhost:8080/LivrariaVirtual/servicos/Livro';
     private urlCompra = 'http://localhost:8080/LivrariaVirtual/servicos/Compra';
 
     buscaLivros(){
@@ -42,10 +42,22 @@ export class LivrosService{
         return this.http.post(this.urlCompra, dadosCompra);
     }
 
+    downloadRelatorioLivro(dataInicio: string, dataFim: string) {
+        // alert(this.urlCompra + '?mesInicio=' + dataInicio + '&mesFim=' + dataFim + '&tipo=livros');
+        window.open(this.urlCompra + '?mesInicio=' + dataInicio + '&mesFim=' + dataFim + '&tipo=livros', '_blank');
+        return null;
+    }
+
+
+    downloadRelatorioUsuario(dataInicio: string, dataFim: string){
+        window.open(this.urlCompra + '?mesInicio=' + dataInicio + '&mesFim=' + dataFim + '&tipo=usuarios', '_blank');
+        return null;
+    }
+
     downloadFile(data) {
         const blob = new Blob([data]);
-        const url= window.URL.createObjectURL(blob);
+        const url = window.URL.createObjectURL(blob);
         window.open(url);
-    }    
+    }
 
 }

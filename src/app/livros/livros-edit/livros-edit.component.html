@@ -1,4 +1,9 @@
 <div class="container">
+<style>
+  .alinha{background-color:lightgrey; width:220px; height: 330px; text-align: center; border-style:solid; border-width: 2px; border-color: gray;};
+  .btnrela{color:aliceblue; padding-top: 5px;}
+</style>
+
     <div class="row">
       <div class="box">
         <div class="col-lg-12">
@@ -7,6 +12,15 @@
             <strong>AQUI O SEU LIVRO</strong>
           </h2>
           <hr>
+        </div>
+        <div class="alinha" >
+            <h4>Relatórios</h4>
+            <label>Mês Inicial</label>
+            <input type="text" class="form-control"  name="mesIncial" id="mesIncial" [(ngModel)]= "txtMesIncial">
+            <label>Mês Final</label>
+            <input type="text" class="form-control" name="txtMesFinal" id="txtMesFinal" [(ngModel)]= "txtMesFinal">
+            <button class="btnrela" type="submit" (click)="downloadRelatorioLivro()" >Relatório Livros</button>
+            <button class="btnrela" type="submit" (click)="downloadRelatorioUsuario()" >Relatório Usuarios</button>
         </div>
         <div class="col-lg-12">
           <div class="jumbotron">
@@ -59,10 +73,12 @@
               <hr />
               <div class="form-group text-center">
                 <button class="btn btn-primary" type="submit" [disabled]="!formLivro.valid" >Salvar</button>
-                <a _ngcontent-c7="" class="btn btn-primary" routerlink="novo" ng-reflect-router-link="novo" href="http://localhost:8080/LivrariaVirtual/servicos/Compra" target="_blank">Gerar Relatório de Livros</a>
+                
               </div>
               
+            
             </form>
+            
           </div>
         </div>
         <div class="clearfix">
